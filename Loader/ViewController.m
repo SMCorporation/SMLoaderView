@@ -21,13 +21,14 @@
 {
     [super viewDidLoad];
     
-    SMLoaderView *loaderView = [[SMLoaderView alloc] initWithFrame:CGRectMake(100, 100, 200, 200)];
+    SMLoaderView *loaderView = [[SMLoaderView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+    loaderView.center = self.view.center;
     loaderView.backgroundColor = [UIColor blueColor];
-    loaderView.radiusOffset = 20;
-    loaderView.lineWidth = 10;
-    loaderView.tailLength = 0.9;
-    loaderView.duration = 5;
-//    loaderView.pauseDuration = 1;
+    loaderView.layer.cornerRadius = 10;
+    loaderView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.8];
+    
+    loaderView.radiusOffset = 14;
+    loaderView.tailLength = 0.6;
     
     [self.view addSubview:loaderView];
     [loaderView startAnimating];

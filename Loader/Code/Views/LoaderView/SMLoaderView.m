@@ -41,10 +41,10 @@
 
 - (void)initialSetups
 {
-    self.duration = 0.4;
+    self.duration = 1.1;
     self.clockwise = YES;
-    self.lineWidth = 5;
-    self.tailLength = 0.9;
+    self.lineWidth = 4;
+    self.tailLength = 0.6;
     self.lineColor = [UIColor whiteColor];
 }
 
@@ -76,32 +76,29 @@
 
 - (void)setupAnimations
 {
-//    CGFloat delay = 0.5;
-    CGFloat tailLength = MAX(MIN(1.0, self.tailLength), 0.1);
-    CGFloat tailValue = (1.0 - tailLength);
+    CGFloat tailLength = MAX(MIN(0.99, self.tailLength), 0.1);
+    CGFloat durationDelta = (self.duration * tailLength);
     
+    CABasicAnimation *strokeEndAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+    strokeEndAnimation.duration  = self.duration - (durationDelta * 0.7); //0.7
+    strokeEndAnimation.fromValue = @(0);
+    strokeEndAnimation.toValue   = @(1);
+    strokeEndAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    strokeEndAnimation.removedOnCompletion = NO;
     
-    CABasicAnimation *drawAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-    drawAnimation.duration  = (self.duration * tailValue) / 2;//+ self.duration * (1.0 - tailLength);
-    drawAnimation.fromValue = @(0);
-    drawAnimation.toValue   = @(1);
-    drawAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    drawAnimation.removedOnCompletion = NO;
+    CABasicAnimation *strokeStartAnimation = [CABasicAnimation animationWithKeyPath:@"strokeStart"];
+    strokeStartAnimation.duration  = self.duration - (durationDelta * 0.3); //0.9
+    strokeStartAnimation.removedOnCompletion = NO;
+    strokeStartAnimation.fromValue = @(0);
+    strokeStartAnimation.toValue   = @(1);
+    strokeStartAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     
     CAAnimationGroup *animationGroup = [CAAnimationGroup animation];
-    animationGroup.duration = self.duration;
+    animationGroup.duration = strokeStartAnimation.duration;
     animationGroup.removedOnCompletion = NO;
     animationGroup.repeatCount = INFINITY;
-    animationGroup.animations = @[drawAnimation];
+    animationGroup.animations = @[strokeEndAnimation, strokeStartAnimation];
     
-    drawAnimation = [CABasicAnimation animationWithKeyPath:@"strokeStart"];
-    drawAnimation.duration  = self.duration;
-    drawAnimation.removedOnCompletion = NO;
-    drawAnimation.fromValue = @(0);
-    drawAnimation.toValue   = @(1);
-    drawAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    
-    animationGroup.animations = [[animationGroup animations] arrayByAddingObject:drawAnimation];
     [self.loaderLayer addAnimation:animationGroup forKey:@"loader"];
 }
 

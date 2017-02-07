@@ -10,13 +10,12 @@
 
 @interface SMLoaderView : UIView
 
-@property (nonatomic, assign) CGFloat duration;      // 0.4   - by default
+@property (nonatomic, assign) CGFloat duration;      // 1.1   - by default
 @property (nonatomic, assign) BOOL clockwise;        // YES   - by default
 @property (nonatomic, assign) CGFloat lineWidth;     // 5     - by default
 @property (nonatomic, strong) UIColor *lineColor;    // white - by default
 @property (nonatomic, assign) CGFloat radiusOffset;  // 0 - by default
-//@property (nonatomic, assign) CGFloat pauseDuration; // 0.3 - by default
-@property (nonatomic, assign) CGFloat tailLength; //from 0.1 to 1.0, 0.9 - by default
+@property (nonatomic, assign) CGFloat tailLength;    // from 0.1 to 0.99, 0.6 - by default
 
 - (void)startAnimating;
 
