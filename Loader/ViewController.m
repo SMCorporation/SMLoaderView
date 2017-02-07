@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "SMLoaderView.h"
 
 #define RGB(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
 
@@ -20,6 +21,18 @@
 {
     [super viewDidLoad];
     
+    SMLoaderView *loaderView = [[SMLoaderView alloc] initWithFrame:CGRectMake(100, 100, 200, 200)];
+    loaderView.backgroundColor = [UIColor blueColor];
+    loaderView.radiusOffset = 20;
+    loaderView.lineWidth = 10;
+    loaderView.tailLength = 0.9;
+    loaderView.duration = 5;
+//    loaderView.pauseDuration = 1;
+    
+    [self.view addSubview:loaderView];
+    [loaderView startAnimating];
+    
+    return;
     UIView *subview = [[UIView alloc] initWithFrame:CGRectMake(100, 100, 200, 200)];
     subview.backgroundColor = RGB(0, 147, 229); //[UIColor clearColor]; //[UIColor colorWithRed:0 green:147 / 255 blue:229 / 255 alpha:1];
     

@@ -13,6 +13,8 @@
 		5035EECD1E2ED21600F2FA15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5035EECB1E2ED21600F2FA15 /* Main.storyboard */; };
 		5035EECF1E2ED21600F2FA15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5035EECE1E2ED21600F2FA15 /* Assets.xcassets */; };
 		5035EED21E2ED21600F2FA15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5035EED01E2ED21600F2FA15 /* LaunchScreen.storyboard */; };
+		5053FB2C1E48BB33009E7DF9 /* SMLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5053FB2B1E48BB33009E7DF9 /* SMLoader.m */; };
+		5053FB301E48C1CF009E7DF9 /* SMLoaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5053FB2F1E48C1CF009E7DF9 /* SMLoaderView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,10 @@
 		5035EECE1E2ED21600F2FA15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5035EED11E2ED21600F2FA15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5035EED31E2ED21600F2FA15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5053FB2A1E48BB33009E7DF9 /* SMLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMLoader.h; sourceTree = "<group>"; };
+		5053FB2B1E48BB33009E7DF9 /* SMLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMLoader.m; sourceTree = "<group>"; };
+		5053FB2E1E48C1CF009E7DF9 /* SMLoaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMLoaderView.h; sourceTree = "<group>"; };
+		5053FB2F1E48C1CF009E7DF9 /* SMLoaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMLoaderView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,7 @@
 		5035EEC11E2ED21600F2FA15 /* Loader */ = {
 			isa = PBXGroup;
 			children = (
+				5053FB271E48BA8E009E7DF9 /* Code */,
 				5035EEC51E2ED21600F2FA15 /* AppDelegate.h */,
 				5035EEC61E2ED21600F2FA15 /* AppDelegate.m */,
 				5035EEC81E2ED21600F2FA15 /* ViewController.h */,
@@ -77,6 +84,41 @@
 				5035EEC31E2ED21600F2FA15 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5053FB271E48BA8E009E7DF9 /* Code */ = {
+			isa = PBXGroup;
+			children = (
+				5053FB281E48BA9E009E7DF9 /* Domain */,
+				5053FB291E48BA9E009E7DF9 /* Views */,
+			);
+			path = Code;
+			sourceTree = "<group>";
+		};
+		5053FB281E48BA9E009E7DF9 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				5053FB2A1E48BB33009E7DF9 /* SMLoader.h */,
+				5053FB2B1E48BB33009E7DF9 /* SMLoader.m */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		5053FB291E48BA9E009E7DF9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5053FB2D1E48C195009E7DF9 /* LoaderView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5053FB2D1E48C195009E7DF9 /* LoaderView */ = {
+			isa = PBXGroup;
+			children = (
+				5053FB2E1E48C1CF009E7DF9 /* SMLoaderView.h */,
+				5053FB2F1E48C1CF009E7DF9 /* SMLoaderView.m */,
+			);
+			path = LoaderView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +193,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5053FB301E48C1CF009E7DF9 /* SMLoaderView.m in Sources */,
+				5053FB2C1E48BB33009E7DF9 /* SMLoader.m in Sources */,
 				5035EECA1E2ED21600F2FA15 /* ViewController.m in Sources */,
 				5035EEC71E2ED21600F2FA15 /* AppDelegate.m in Sources */,
 				5035EEC41E2ED21600F2FA15 /* main.m in Sources */,
@@ -310,6 +354,7 @@
 				5035EED81E2ED21600F2FA15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
